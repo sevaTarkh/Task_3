@@ -1,10 +1,8 @@
 import allure
 import sys
 import os
-
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 from locators.recovery_password_page_locators import RecoveryPasswordPageLocators
-from data.data import Constants
 from pages.base_page import BasePage
 
 class RecoveryPasswordPage(BasePage):
@@ -26,7 +24,6 @@ class RecoveryPasswordPage(BasePage):
     def fill_password_input(self, password):
         self.send_keys_to_input(RecoveryPasswordPageLocators.password_input, password)
     
-
     @allure.step('Нажимаю на кнопку показать пароль')
     def click_show_password_button(self):
         self.click_element(RecoveryPasswordPageLocators.hide_password_button)

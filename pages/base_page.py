@@ -49,6 +49,4 @@ class BasePage:
     def wait_change_value(self, locator, value):
         return WebDriverWait(self.driver, 15).until_not(EC.text_to_be_present_in_element(locator, value))
 
-    # def check_invisibility(self, locator) -> object:
-    #     return WebDriverWait(self.driver, 10).until(EC.invisibility_of_element(locator))
     
