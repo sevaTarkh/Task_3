@@ -2,7 +2,6 @@ import sys
 import os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 import allure
-from data.data import Constants
 from pages.main_page import MainPage
 from pages.list_of_orders_page import ListOfOrdersPage
 

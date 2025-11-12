@@ -2,7 +2,7 @@ import sys
 import os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 import allure
-from data.data import Constants
+from data.data import UrlConstants
 from pages.login_page import LoginPage
 from pages.main_page import MainPage
 from pages.profile_page import ProfilePage
@@ -37,7 +37,7 @@ class TestPersonalAccauntPage:
 
         main_page.click_my_accaunt_button()
         profile_page.click_history_orders_button()
-        profile_page.check_current_url(Constants.url_burger_history_orders)
+        profile_page.check_current_url(UrlConstants.url_burger_history_orders)
 
     @allure.title('Выход из аккаунта')
     @allure.description('Нажимаю на личный кабинет, нажимаю на выход')

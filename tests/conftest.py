@@ -7,7 +7,7 @@ from selenium.webdriver.firefox.firefox_profile import FirefoxProfile
 from selenium.webdriver.chrome.options import Options as ChromeOptions
 from helpers.helpers import Helpers
 import requests
-from data.data import Constants
+from data.data import UrlConstants
 
 @pytest.fixture(params=['chrome', 'firefox'])
 def browser(request):
@@ -27,7 +27,7 @@ def browser(request):
         chrome_options.add_argument("--disable-extensions")  
         driver = webdriver.Chrome(options=chrome_options)
 
-    driver.get(Constants.url_burger)
+    driver.get(UrlConstants.url_burger)
     yield driver
     driver.quit()
 
@@ -44,10 +44,10 @@ def create_user_and_delete_after():
             "name": login_pass_name[2]
         }
         
-        response = requests.post(f"{Constants.url_burger}api/auth/login", data=payload)
+        response = requests.post(f"{UrlConstants.url_burger}api/auth/login", data=payload)
         if response.status_code == 200:
             user_token = response.json()["accessToken"]
-            requests.delete(f"{Constants.url_burger}api/auth/user", headers={'Authorization': user_token})
+            requests.delete(f"{UrlConstants.url_burger}api/auth/user", headers={'Authorization': user_token})
 
 
 

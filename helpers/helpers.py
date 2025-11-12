@@ -1,6 +1,6 @@
 import requests
 from datetime import datetime
-from data.data import Constants
+from data.data import Constants, UrlConstants
 import sys
 import os
 import time
@@ -21,7 +21,7 @@ class Helpers:
             "password": password,
             "name": unique_name,
         }
-        response = requests.post(f"{Constants.url_burger}api/auth/register", data=payload)
+        response = requests.post(f"{UrlConstants.url_burger}api/auth/register", data=payload)
         
         if response.status_code == 200:
             return [response.json()['user']['email'], password, response.json()['user']['name'], response.json()['accessToken']]
@@ -43,6 +43,6 @@ class Helpers:
 
         main_page.move_bun_to_burger(browser)
         main_page.click_create_order_button()
-        time.sleep(1)
+        #time.sleep(1)
         main_page.click_close_order_button()
 

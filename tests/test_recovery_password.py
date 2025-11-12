@@ -2,7 +2,7 @@ import sys
 import os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 import allure
-from data.data import Constants
+from data.data import Constants, UrlConstants
 from pages.login_page import LoginPage
 from pages.main_page import MainPage
 from pages.recovery_password_page import RecoveryPasswordPage
@@ -19,7 +19,7 @@ class TestRecoveryPage:
         main_page.click_login_button()
         login_page.click_recovery_password_button()
 
-        recovery_password_page.check_current_url(Constants.url_burger_recovery)
+        recovery_password_page.check_current_url(UrlConstants.url_burger_recovery)
 
     @allure.title('Восстановления почты')
     @allure.description('Переходим на страницу "Восстановления пароля", вводим потчу, нажимаем кнопку восстановить, ждем появления воостановления пароля')
